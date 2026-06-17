@@ -1,0 +1,14 @@
+{
+  "name": "jt-crm-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "node src/index.js",
+    "seed": "node src/seed.js"
+  },
+  "dependencies": {
+    "sql.js": "^1.11.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.0"
+  }
+}
