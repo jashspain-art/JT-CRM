@@ -7,8 +7,9 @@
     "seed": "node src/seed.js"
   },
   "dependencies": {
-    "sql.js": "^1.11.0",
     "cors": "^2.8.5",
-    "express": "^4.21.0"
+    "dotenv": "^17.4.2",
+    "express": "^4.21.0",
+    "sql.js": "^1.11.0"
   }
 }

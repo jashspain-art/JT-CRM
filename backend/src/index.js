@@ -1,3 +1,8 @@
+import dotenv from 'dotenv';
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 import express from 'express';
 import cors from 'cors';
 import { getDb, saveDb } from './db.js';
@@ -12,6 +17,7 @@ import activityRouter from './routes/activity.js';
 import tagsRouter from './routes/tags.js';
 import importExportRouter from './routes/importExport.js';
 import mergeRouter from './routes/merge.js';
+import researchRouter from './routes/research.js';
 
 const app = express();
 const PORT = 3001;
@@ -32,6 +38,7 @@ app.use('/api/tags', tagsRouter);
 app.use('/api/import', importExportRouter);
 app.use('/api/export', importExportRouter);
 app.use('/api/merge', mergeRouter);
+app.use('/api/research', researchRouter);
 
 setInterval(async () => {
   const db = await getDb();

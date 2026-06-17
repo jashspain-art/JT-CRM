@@ -5,6 +5,7 @@ import ContactList from './components/ContactList'
 import ContactDetail from './components/ContactDetail'
 import CompanyList from './components/CompanyList'
 import CompanyDetail from './components/CompanyDetail'
+import LeadResearch from './components/LeadResearch'
 import CommandPalette from './components/CommandPalette'
 import { ToastProvider } from './components/Toast'
 
@@ -22,6 +23,10 @@ function ContactDetailPage() {
 function CompaniesPage() {
   const navigate = useNavigate();
   return <CompanyList onSelect={id => navigate(`/companies/${id}`)} />;
+}
+
+function ResearchPage() {
+  return <LeadResearch />;
 }
 
 function CompanyDetailPage() {
@@ -53,6 +58,7 @@ function Layout() {
     { id: 'go-dash', label: 'Go to Dashboard', category: 'Navigation', action: () => navigate('/') },
     { id: 'go-contacts', label: 'Go to Contacts', category: 'Navigation', action: () => navigate('/contacts') },
     { id: 'go-companies', label: 'Go to Companies', category: 'Navigation', action: () => navigate('/companies') },
+    { id: 'go-research', label: 'Go to Lead Research', category: 'Navigation', action: () => navigate('/research') },
     { id: 'add-contact', label: 'Add New Contact', category: 'Actions', action: () => navigate('/contacts/0') },
     { id: 'add-company', label: 'Add New Company', category: 'Actions', action: () => navigate('/companies/0') },
     { id: 'open-cmd', label: 'Open Command Palette', category: 'System', action: () => setCmdOpen(true) },
@@ -73,6 +79,7 @@ function Layout() {
     { path: '/', label: 'Dashboard' },
     { path: '/contacts', label: 'Contacts' },
     { path: '/companies', label: 'Companies' },
+    { path: '/research', label: 'Research' },
   ];
 
   return (
@@ -110,6 +117,7 @@ function Layout() {
           <Route path="/contacts/:id" element={<ContactDetailPage />} />
           <Route path="/companies" element={<CompaniesPage />} />
           <Route path="/companies/:id" element={<CompanyDetailPage />} />
+          <Route path="/research" element={<ResearchPage />} />
         </Routes>
       </main>
       <CommandPalette open={cmdOpen} onClose={() => setCmdOpen(false)} commands={commands} />

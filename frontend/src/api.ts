@@ -90,6 +90,9 @@ export const api = {
   validateImport: (records: any[], entity: string) => post<ValidationResult>('/import/validate', { records, entity }),
   exportData: (entity: string, ids?: number[], format?: string) => post<any>('/export/export', { entity, ids, format }),
 
+  // Research
+  searchLeads: (query: string, maxResults?: number) => post<any>('/research/leads', { query, maxResults }),
+
   // Merge
   mergeContacts: (primary_id: number, secondary_id: number, opts?: any) => post<Contact>('/merge/contacts', { primary_id, secondary_id, ...opts }),
   mergeCompanies: (primary_id: number, secondary_id: number, opts?: any) => post<Company>('/merge/companies', { primary_id, secondary_id, ...opts }),
